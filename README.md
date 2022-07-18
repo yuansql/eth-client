@@ -1,14 +1,19 @@
+# 根据业务小改了一下
+
 # ethereum-client
+
 ethereum rpc client, offline sign, php
 
-PHP版的以太坊RPC客户端，支持离线交易、生成私钥与地址。你不用专门购买一台服务器来运行以太坊客户端。
+PHP 版的以太坊 RPC 客户端，支持离线交易、生成私钥与地址。你不用专门购买一台服务器来运行以太坊客户端。
 
 你可以使用以太坊公共节点，比如：https://infura.io 你可以将你用户的私钥加密存储在数据库中，使用的时候取出解密，直接发送交易。
 
 这样不仅高效率且安全（如果你执意要使用服务器来运行以太坊客户端，这个项目也支持）。
 
 # 安装
+
 composer.json
+
 ```
 {
     "require": {
@@ -22,13 +27,14 @@ composer.json
 > 或者直接 `composer require myxtype/ethereum-client:dev-master`
 
 # 使用
+
 详细使用请参考`examples`文件夹
 
-你可以在这里：https://infura.io/docs 看到更多可使用的RPC方法。
+你可以在这里：https://infura.io/docs 看到更多可使用的 RPC 方法。
 
 # 初始化
 
-初始化你可以直接给一个RPC的连接地址，或者参考`GuzzleHttp Options`给出一些自定义的选项。
+初始化你可以直接给一个 RPC 的连接地址，或者参考`GuzzleHttp Options`给出一些自定义的选项。
 
 ```php
 use xtype\Ethereum\Client as EthereumClient;
@@ -39,6 +45,7 @@ $client = new EthereumClient('https://kovan.infura.io/v3/a0d810fdff64493baba4727
 ```
 
 GuzzleHttp Options.
+
 ```php
 $client = new EthereumClient([
     'base_uri' => 'https://kovan.infura.io/v3/a0d810fdff64493baba47278f3ebad27',
@@ -48,9 +55,10 @@ $client = new EthereumClient([
 
 # RPC
 
-使用RPC接口非常简单，你直接参考 https://ethereum.gitbooks.io/frontier-guide/content/rpc.html 这里列出的接口使用。
+使用 RPC 接口非常简单，你直接参考 https://ethereum.gitbooks.io/frontier-guide/content/rpc.html 这里列出的接口使用。
 
-你需要根据RPC文档设置参数，注意数字一般都需要转为十六进制。
+你需要根据 RPC 文档设置参数，注意数字一般都需要转为十六进制。
+
 ```php
 // net_version
 print_r($client->net_version());
@@ -58,12 +66,14 @@ print_r($client->net_version());
 print_r($client->eth_getBlockByNumber('0x' . dechex(2), false));
 ```
 
-你也可以使用额外的RPC方法，当然这需要你的私有节点，如果你用的公共节点则没有此方法。
+你也可以使用额外的 RPC 方法，当然这需要你的私有节点，如果你用的公共节点则没有此方法。
+
 ```php
 print_r($client->personal_newAccount());
 ```
 
 你可以直接使用这个类提供的离节点创建地址与私钥。
+
 ```php
 // You can to create an address offline
 list($address, $privateKey) = $client->newAccount();

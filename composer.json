@@ -9,8 +9,7 @@
     ],
     "require": {
         "simplito/elliptic-php": "^1.0",
-        "kornrunner/keccak": "^1.0",
-        "guzzlehttp/guzzle": "^6.3"
+        "kornrunner/keccak": "^1.0"
     },
     "autoload": {
         "psr-4": {
