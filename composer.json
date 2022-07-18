@@ -1,0 +1,20 @@
+{
+    "name": "wummm/ethereum-client",
+    "description": "ethereum rpc client, offline sign, php",
+    "authors": [
+        {
+            "name": "wumm",
+            "email": "w2011344@qq.com"
+        }
+    ],
+    "require": {
+        "simplito/elliptic-php": "^1.0",
+        "kornrunner/keccak": "^1.0",
+        "guzzlehttp/guzzle": "^6.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "xtype\\": "src/"
+        }
+    }
+}
